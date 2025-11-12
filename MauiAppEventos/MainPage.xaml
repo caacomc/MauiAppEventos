@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label Text="Digite o nome do Evento: " />
+            <Entry x:Name="txt_NomeEvento"/>
+
+            <Label Text="Data do Inicio do Evento: " />
+            <Entry x:Name="txt_DataInicio"/>
+
+            <Label Text="Data do Término do Evento: "/>
+            <Entry x:Name="txt_DataTermino"/>
+
+            <Label Text="Quantidade de Participantes: "/>
+            <Entry x:Name="txt_NumParticipantes" />
+
+            <Label Text="Local do Evento: "/>
+            <Entry x:Name="txt_LocalEvento"/>
+
+            <Label Text="Custo por Participante: "/>
+            <Entry x:Name="txt_CustoPorParticipante" Placeholder="R$ "/>
+
+            <Button Text="Cadastrar" Clicked="Button_Clicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
