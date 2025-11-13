@@ -13,6 +13,9 @@ namespace MauiAppEventos
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Pompiere.ttf", "Pompiere");
+                    fonts.AddFont("Tangerine-Bold.ttf", "TangerineBold");
+                    fonts.AddFont("Tangerine-Regular.ttf", "TangerineRegular");
                 });
 
 #if DEBUG

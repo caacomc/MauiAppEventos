@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.CadastroEvento"
+             Title="CadastroEvento"
+             NavigationPage.HasNavigationBar="False"
+             Background="Beige">
+    
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10">
+        <Label Text="Cadastro do Evento"
+               FontFamily="TangerineRegular" 
+               FontSize="70"
+               TextColor="Brown"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand"/>
+
+        <Label Text="Nome do Evento: "
+               FontSize="25"
+               FontFamily="TangerineBold"
+               TextColor="Brown"/>
+        <Entry x:Name="txt_NomeEvento"
+               FontFamily="TangerineBold"
+               TextColor="Brown"/>
+
+        <Label Text="Local do Evento: "
+               FontSize="25"
+               FontFamily="TangerineBold"
+               TextColor="Brown"/>
+        <Entry x:Name="txt_LocalEvento"
+               FontFamily="TangerineBold"
+               TextColor="Brown"/>
+
+        <Frame 
+            Padding="10"
+            Background="Beige">
+            <VerticalStackLayout>
+                <Grid RowDefinitions="Auto, Auto"
+                      ColumnDefinitions="*, *, 2*">
+
+                    <Label Grid.Row="0" Grid.Column="0"
+                           Text="Número de Participantes:"
+                           TextColor="Brown"
+                           FontFamily="TangerineBold"
+                           FontSize="25"/>
+
+                    <Label Grid.Row="0" Grid.Column="1"
+                           Text="{Binding Value}"
+                           BindingContext="{x:Reference stp_participantes}"
+                           TextColor="Brown"
+                           FontFamily="TangerineBold"
+                           FontSize="30"/>
+
+                    <Stepper Grid.Row="0" Grid.Column="2"
+                             x:Name="stp_participantes"
+                             Minimum="1"
+                             Maximum="500"
+                             Increment="1" />
+
+                </Grid>
+
+                <Frame Padding="10"
+                       Margin="10"
+                       Background="Beige">
+                    <VerticalStackLayout>
+                        <Label Text="Período do Evento"
+                               VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="CenterAndExpand"
+                               FontFamily="TangerineBold"
+                               FontSize="40"
+                               TextColor="Brown"/>
+                        <HorizontalStackLayout>
+                            <Label Text="Inicio do Evento: "
+                                   FontFamily="TangerineBold"
+                                   FontSize="25"
+                                   TextColor="Brown"/>
+                            <DatePicker x:Name="dtpck_inicio"
+                                        Format="dd/MM/yyyy" />
+                        </HorizontalStackLayout>
+                        
+                        <HorizontalStackLayout>
+                        <Label Text="Término do Evento: "
+                               FontFamily="TangerineBold"
+                               FontSize="25"
+                               TextColor="Brown"/>
+                        <DatePicker x:Name="dtpck_termino"
+                                        Format="dd/MM/yyyy" />
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+                <Button Text="Cadastrar" />
+            </VerticalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+    
+</ContentPage>

@@ -7,25 +7,32 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Label Text="Digite o nome do Evento: " />
+            <Label Text="Digite o nome do Evento: "
+                   FontFamily="Pompiere"/>
             <Entry x:Name="txt_NomeEvento"/>
 
-            <Label Text="Data do Inicio do Evento: " />
+            <Label Text="Data do Inicio do Evento: "
+                   FontFamily="Pompiere"/>
             <Entry x:Name="txt_DataInicio"/>
 
-            <Label Text="Data do Término do Evento: "/>
+            <Label Text="Data do Término do Evento: "
+                   FontFamily="Pompiere"/>
             <Entry x:Name="txt_DataTermino"/>
 
-            <Label Text="Quantidade de Participantes: "/>
+            <Label Text="Quantidade de Participantes: "
+                   FontFamily="Pompiere"/>
             <Entry x:Name="txt_NumParticipantes" />
 
-            <Label Text="Local do Evento: "/>
+            <Label Text="Local do Evento: "
+                   FontFamily="Pompiere"/>
             <Entry x:Name="txt_LocalEvento"/>
 
             <Label Text="Custo por Participante: "/>
             <Entry x:Name="txt_CustoPorParticipante" Placeholder="R$ "/>
 
-            <Button Text="Cadastrar" Clicked="Button_Clicked"/>
+            <Button Text="Cadastrar"
+                    FontFamily="Pompiere"
+                    Clicked="Button_Clicked"/>
 
         </VerticalStackLayout>
     </ScrollView>

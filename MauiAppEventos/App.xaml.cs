@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MauiAppEventos.Views;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MauiAppEventos
 {
@@ -8,7 +9,7 @@ namespace MauiAppEventos
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new Views.CadastroEvento());
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
