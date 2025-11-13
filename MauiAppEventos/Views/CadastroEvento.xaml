@@ -4,96 +4,120 @@
              x:Class="MauiAppEventos.Views.CadastroEvento"
              Title="CadastroEvento"
              NavigationPage.HasNavigationBar="False"
-             Background="Beige">
-    
-    <VerticalStackLayout VerticalOptions="CenterAndExpand"
-                         Padding="10">
-        <Label Text="Cadastro do Evento"
-               FontFamily="TangerineRegular" 
-               FontSize="70"
-               TextColor="Brown"
-               VerticalOptions="CenterAndExpand"
-               HorizontalOptions="CenterAndExpand"/>
+             BackgroundColor="Beige">
 
-        <Label Text="Nome do Evento: "
-               FontSize="25"
-               FontFamily="TangerineBold"
-               TextColor="Brown"/>
-        <Entry x:Name="txt_NomeEvento"
-               FontFamily="TangerineBold"
-               TextColor="Brown"/>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
 
-        <Label Text="Local do Evento: "
-               FontSize="25"
-               FontFamily="TangerineBold"
-               TextColor="Brown"/>
-        <Entry x:Name="txt_LocalEvento"
-               FontFamily="TangerineBold"
-               TextColor="Brown"/>
+            <Label Text="Cadastro do Evento"
+                   FontFamily="TangerineRegular"
+                   FontSize="70"
+                   TextColor="Brown"
+                   HorizontalOptions="Center" />
 
-        <Frame 
-            Padding="10"
-            Background="Beige">
-            <VerticalStackLayout>
-                <Grid RowDefinitions="Auto, Auto"
+            <!-- Nome -->
+            <Label Text="Nome do Evento:"
+                   FontSize="25"
+                   FontFamily="TangerineBold"
+                   TextColor="Brown" />
+            <Entry Text="{Binding Nome, Mode=TwoWay}"
+                   FontFamily="TangerineBold"
+                   FontSize="25"
+                   TextColor="Brown"
+                   Placeholder="Digite o nome do evento" />
+
+            <!-- Local -->
+            <Label Text="Local do Evento:"
+                   FontSize="25"
+                   FontFamily="TangerineBold"
+                   TextColor="Brown" />
+            <Entry Text="{Binding Local, Mode=TwoWay}"
+                   FontFamily="TangerineBold"
+                   FontSize="25"
+                   TextColor="Brown"
+                   Placeholder="Digite o local" />
+
+            <!-- Custo -->
+            <Label Text="Custo por Participante:"
+                   FontSize="25"
+                   FontFamily="TangerineBold"
+                   TextColor="Brown" />
+            <Entry Text="{Binding CustoPorParticipante, Mode=TwoWay}"
+                   FontFamily="TangerineBold"
+                   FontSize="25"
+                   Keyboard="Numeric"
+                   TextColor="Brown"
+                   Placeholder="R$ 0,00" />
+
+            <!-- Participantes -->
+            <Frame Padding="10"
+                   BackgroundColor="Beige"
+                   BorderColor="Brown"
+                   CornerRadius="20">
+                
+                <Grid RowDefinitions="Auto, Auto" 
                       ColumnDefinitions="*, *, 2*">
-
-                    <Label Grid.Row="0" Grid.Column="0"
-                           Text="Número de Participantes:"
+                    
+                    <Label Grid.Row="0" Grid.Column="0" Text="Número de Participantes:"
                            TextColor="Brown"
                            FontFamily="TangerineBold"
-                           FontSize="25"/>
-
-                    <Label Grid.Row="0" Grid.Column="1"
-                           Text="{Binding Value}"
+                           FontSize="22"/>
+                    
+                    <Label Grid.Row="0" Grid.Column="1" 
                            BindingContext="{x:Reference stp_participantes}"
+                            Text="{Binding Value}"
                            TextColor="Brown"
-                           FontFamily="TangerineBold"
+                           FontFamily="TangerineBold" 
                            FontSize="30"/>
 
-                    <Stepper Grid.Row="0" Grid.Column="2"
+                    <Stepper Grid.Row="0" Grid.Column="2" 
                              x:Name="stp_participantes"
                              Minimum="1"
                              Maximum="500"
-                             Increment="1" />
+                             Increment="1"
+                             Value="{Binding NumeroParticipantes, Mode=TwoWay}"/>
 
                 </Grid>
+            </Frame>
 
-                <Frame Padding="10"
-                       Margin="10"
-                       Background="Beige">
-                    <VerticalStackLayout>
-                        <Label Text="Período do Evento"
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"
-                               FontFamily="TangerineBold"
-                               FontSize="40"
-                               TextColor="Brown"/>
-                        <HorizontalStackLayout>
-                            <Label Text="Inicio do Evento: "
-                                   FontFamily="TangerineBold"
-                                   FontSize="25"
-                                   TextColor="Brown"/>
-                            <DatePicker x:Name="dtpck_inicio"
-                                        Format="dd/MM/yyyy" />
-                        </HorizontalStackLayout>
-                        
-                        <HorizontalStackLayout>
-                        <Label Text="Término do Evento: "
+            <!-- Datas -->
+            <Frame Padding="10" BackgroundColor="Beige" BorderColor="Brown" CornerRadius="20">
+                <VerticalStackLayout>
+                    <Label Text="Período do Evento"
+                           FontFamily="TangerineBold"
+                           FontSize="40"
+                           TextColor="Brown"
+                           HorizontalOptions="Center" />
+
+                    <HorizontalStackLayout>
+                        <Label Text="Início:"
                                FontFamily="TangerineBold"
                                FontSize="25"
-                               TextColor="Brown"/>
-                        <DatePicker x:Name="dtpck_termino"
-                                        Format="dd/MM/yyyy" />
-                        </HorizontalStackLayout>
+                               TextColor="Brown" />
+                        <DatePicker Date="{Binding DataInicio, Mode=TwoWay}" Format="dd/MM/yyyy" />
+                    </HorizontalStackLayout>
 
-                    </VerticalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Término:"
+                               FontFamily="TangerineBold"
+                               FontSize="25"
+                               TextColor="Brown" />
+                        <DatePicker Date="{Binding DataTermino, Mode=TwoWay}" Format="dd/MM/yyyy" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
 
-                </Frame>
+            <!-- Botão -->
+            <Button Text="Cadastrar"
+                    FontFamily="TangerineBold"
+                    FontSize="25"
+                    BackgroundColor="Brown"
+                    TextColor="Beige"
+                    CornerRadius="20"
+                    Padding="10"
+                    HorizontalOptions="Center"
+                    Clicked="CadastrarEvento_Clicked" />
 
-                <Button Text="Cadastrar" />
-            </VerticalStackLayout>
-        </Frame>
-    </VerticalStackLayout>
-    
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

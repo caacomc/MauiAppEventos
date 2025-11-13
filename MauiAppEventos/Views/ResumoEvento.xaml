@@ -2,11 +2,112 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppEventos.Views.ResumoEvento"
-             Title="ResumoEvento">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Beige">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Resumo do Evento"
+                   FontFamily="TangerineBold"
+                   FontSize="55"
+                   TextColor="Brown"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+
+            <Frame Padding="15" BackgroundColor="Beige" BorderColor="Brown" CornerRadius="20">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <HorizontalStackLayout>
+                        <Label Text="Nome do Evento: "
+                               FontFamily="TangerineBold"
+                               FontSize="25"
+                               TextColor="Brown"/>
+                        <Label Text="{Binding Nome}"
+                               FontFamily="TangerineBold"
+                               FontSize="25"
+                               TextColor="Brown"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Label Text="Local do Evento:"
+                               FontFamily="TangerineBold"
+                               FontSize="25"
+                               TextColor="Brown"/>
+                        <Label Text="{Binding Local}"
+                               FontFamily="TangerineBold"
+                               FontSize="25"
+                               TextColor="Brown"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Label Text="Número de Participantes: "
+                               FontFamily="TangerineBold"
+                               FontSize="25"
+                               TextColor="Brown"/>
+                        <Label Text="{Binding NumeroParticipantes}"
+                               FontFamily="TangerineBold"
+                               FontSize="25"
+                               TextColor="Brown"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Label Text="Data de Início: "
+                               FontFamily="TangerineBold"
+                               FontSize="25"
+                               TextColor="Brown"/>
+                        <Label Text="{Binding DataInicio, StringFormat='{0:dd/MM/yyyy}'}"
+                               FontFamily="TangerineBold"
+                               FontSize="25"
+                               TextColor="Brown"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Label Text="Data de Término: "
+                               FontFamily="TangerineBold"
+                               FontSize="25"
+                               TextColor="Brown"/>
+                        <Label Text="{Binding DataTermino, StringFormat='{0:dd/MM/yyyy}'}"
+                               FontFamily="TangerineBold"
+                               FontSize="25"
+                               TextColor="Brown"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Label Text="Duração (em dias): "
+                               FontFamily="TangerineBold"
+                               FontSize="25"
+                               TextColor="Brown"/>
+                        <Label Text="{Binding DuracaoDias}"
+                               FontFamily="TangerineBold"
+                               FontSize="25"
+                               TextColor="Brown"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Label Text="Valor Total a Pagar: "
+                               FontFamily="TangerineBold"
+                               FontSize="30"
+                               TextColor="Brown"/>
+                        <Label Text="{Binding CustoTotal, StringFormat='R$ {0:N2}'}"
+                               FontFamily="TangerineBold"
+                               FontSize="30"
+                               TextColor="Brown"/>
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Voltar"
+                    FontFamily="TangerineBold"
+                    BackgroundColor="Brown"
+                    TextColor="Beige"
+                    FontSize="25"
+                    CornerRadius="15"
+                    Clicked="Button_Clicked"
+                    HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
